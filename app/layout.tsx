@@ -1,6 +1,8 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Navbar from '../components/Navbar'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +18,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} overflow-auto container mx-auto h-screen bg-neutral-800 text-neutral-100`}>
+        <header className='flex justify-between mb-4 py-1'>
+          <Link href="/" className="text-2xl">Todos</Link>
+          <Navbar />
+        </header>
+        {children}
+      </body>
     </html>
   )
 }
